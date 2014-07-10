@@ -1,0 +1,36 @@
+
+<!-- saved from url=(0060)http://learn.makersquare.com/materials/guess-the-number.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Guess the Number!</title>
+<style type="text/css"></style></head>
+<body>
+
+<script type="text/javascript">
+  // alert('Hello World!');
+
+
+var secretNumber = parseInt(Math.random() * 100, 10) + 1;
+
+var numberGame = function(number) {
+  	
+  	if (parseInt(number) === secretNumber) {
+  		alert("You guessed it! The number was " + secretNumber);
+  	};
+  	if (number > secretNumber) {
+  		alert("Nope. Try lower.");
+  		numberGame(prompt("Guess a number.."));
+  	};  
+  	if (number < secretNumber) {
+  		alert("Nope. Try higher.");
+  		numberGame(prompt("Guess a number.."));
+  	};
+};  
+
+numberGame(prompt("Guess a number.."))
+
+
+</script>
+
+
+
+</body></html>

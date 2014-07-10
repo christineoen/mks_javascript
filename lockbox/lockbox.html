@@ -1,0 +1,65 @@
+
+<!-- saved from url=(0050)file:///Users/christineoen/Downloads/lockbox.html# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Javascript Functions</title>
+  <style type="text/css">
+    .spacer {
+      height: 2500px;
+    }
+    #box {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="click_counter">
+    <label for="clicks">Clicks: <span id="click-counter">0</span></label>
+  </div>
+
+  <div class="spacer">
+    Scroll down (all the way down)
+  </div>
+
+  <p>
+    You see a box.
+    <a id="open-link" href="#">Open the box</a>
+  </p>
+
+  <p id="box">
+    Surprise!
+    <button type="button">Close Box</button>
+</p>
+
+  <script src="./lockbox_files/jquery.min.js"></script>
+  <script type="text/javascript">
+
+  var click_counter = 0;
+
+    $(document).on('click', function() {
+      click_counter += 1;
+      $('#click-counter').text(click_counter);
+      $(document).trigger('new-click-count');
+    });
+
+    $(document).on('new-click-count', function() {
+      if (click_counter % 5 === 0) {
+        alert("New High Score: " + click_counter);
+      };
+    });
+
+    $('#open-link').on('click', function (e) {
+      e.preventDefault();
+      $('#box').show();
+    });
+
+    $('#box').on('click','button', function() {
+      $('#box').hide();
+    });
+
+  </script>
+
+
+
+</body></html>
